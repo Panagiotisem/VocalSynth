@@ -10,7 +10,7 @@ noteNames = {'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'};
 fig = uifigure('Name', 'VocalSynth', 'Position', [400, 200, 750, 440], ...
     'Color', [0.12 0.12 0.16], 'AutoResizeChildren', 'off');
 
-% Κεντρικός Τίτλος (Οι δικές σου αλλαγές)
+% Κεντρικός Τίτλος
 uilabel(fig, 'Text', '🎙️ VocalSynth', 'FontSize', 28, 'FontWeight', 'bold', 'FontName', 'Segoe UI', ...
     'FontColor', [0.3 0.8 1], 'Position', [20, 380, 250, 60]);
 uilabel(fig, 'Text', 'brought to you by PanosEmm', 'FontSize', 9, 'FontWeight', 'bold', 'FontName', 'Segoe UI', ...
@@ -420,13 +420,13 @@ function playReferencePitch(targetStr, notes, midiValues, fs)
     sound(s, fs);
 end
 
-% --- Η ΜΑΓΙΚΗ ΣΥΝΑΡΤΗΣΗ ΠΟΥ ΑΝΑΛΑΜΒΑΝΕΙ ΤΟ ΤΕΛΕΙΟ STRETCHING ---
+% --- STRETCHING ---
 function stretchUI(f, baseW, baseH)
     % Υπολογισμός ποσοστού μεγέθυνσης
     scaleX = f.Position(3) / baseW;
     scaleY = f.Position(4) / baseH;
     
-    % Εφαρμογή της μεγέθυνσης σε κάθε στοιχείο ξεχωριστά!
+    % Εφαρμογή της μεγέθυνσης σε κάθε στοιχείο
     ch = f.Children;
     for i = 1:length(ch)
         if isprop(ch(i), 'Position') && ~isempty(ch(i).UserData)
